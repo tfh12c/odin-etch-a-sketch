@@ -2,7 +2,14 @@ const container = document.querySelector('.container');
 const buttonsContainer = document.querySelector('.buttons')
 
 const greyButton = document.createElement('button');
+greyButton.classList.add('.buttons__grey-button');
+greyButton.innerText = "Grey Scale";
+buttonsContainer.appendChild(greyButton)
+
 const rgbButton = document.createElement('button');
+rgbButton.classList.add('.buttons__grey-button');
+rgbButton.innerText = "Rainbow!";
+buttonsContainer.appendChild(rgbButton);
 
 function createDivs(columns, rows) {
     for (let i = 0; i < (columns * rows); i++) {

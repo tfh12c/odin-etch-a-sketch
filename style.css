@@ -19,4 +19,8 @@
   width: 18.75rem;
   height: 18.75rem;
   display: grid;
+}
+
+.buttons {
+  display: flex;
 }/*# sourceMappingURL=style.css.map */
