@@ -1,13 +1,18 @@
 const container = document.querySelector('.container');
 const buttonsContainer = document.querySelector('.buttons')
 
+const resizeButton = document.createElement('button');
+resizeButton.classList.add('.buttons__resize-button');
+resizeButton.innerText = "Change Grid Size";
+buttonsContainer.appendChild(resizeButton)
+
 const greyButton = document.createElement('button');
 greyButton.classList.add('.buttons__grey-button');
 greyButton.innerText = "Grey Scale";
 buttonsContainer.appendChild(greyButton)
 
 const rgbButton = document.createElement('button');
-rgbButton.classList.add('.buttons__grey-button');
+rgbButton.classList.add('.buttons__rgb-button');
 rgbButton.innerText = "Rainbow!";
 buttonsContainer.appendChild(rgbButton);
 
@@ -31,3 +36,20 @@ window.onload = () => {
         })
     })
 }
+
+function clearDivs() {
+    container.innerHTML = "";
+}
+
+function updateSize() {
+    resizeButton.addEventListener('click', (event) => {
+        let size = prompt("What size grid would you like to use?");
+        if (!size || size <= 0 || size > 100) {
+            alert("Please select a number between 1 and 100");
+        } else {
+            clearDivs();
+            createDivs(size,size);
+        }
+    })
+}
+updateSize();
