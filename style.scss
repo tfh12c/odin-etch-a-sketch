@@ -1,0 +1,39 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.squares {
+    background-color: grey;
+    border: 1px solid black;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    width: 18.75rem;
+    height: 18.75rem;
+    display: grid;
+}
+
+
+// .section {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     flex-direction: column;
+//     width: 100%;
+//     height: 100vh;
+//     border: 1px solid red;
+// }
+
+// .container{
+//     width: 600px;
+//     height: 600px;
+//     display: grid;
+// }
