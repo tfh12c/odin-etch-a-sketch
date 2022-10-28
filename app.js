@@ -30,10 +30,9 @@ createDivs(16,16);
 
 window.onload = () => {
     const divs = document.querySelectorAll('.squares');
-    // console.log(divs);
     divs.forEach((div) => {
         div.addEventListener('mouseover', (event) => {
-            event.target.style.background = "purple";
+            event.target.style.background = "black";
         })
     })
 }
@@ -43,7 +42,7 @@ function clearDivs() {
 }
 
 function updateSize() {
-    let size = prompt("What size grid would you like to use?");
+    const size = prompt("What size grid would you like to use?");
     if (!size || size <= 0 || size > 100) {
         alert("Please select a number between 1 and 100.");
     } else {
@@ -58,11 +57,26 @@ function greyScale() {
     const divs = document.querySelectorAll('.squares');
     divs.forEach((div) => {
         div.addEventListener('mouseover', (event) => {
-            let number = Math.floor(Math.random() * 256);
-            let greyScale = `rgb(${number}, ${number}, ${number})`;
+            const number = Math.floor(Math.random() * 256);
+            const greyScale = `rgb(${number}, ${number}, ${number})`;
             event.target.style.background = greyScale;
         })
     })
 }
 
 greyButton.addEventListener('click', greyScale);
+
+function rgbScale() {
+    const divs = document.querySelectorAll('.squares');
+    divs.forEach((div) => {
+        div.addEventListener('mouseover', (event) => {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            event.target.style.background = color;
+        })
+    })
+}
+rgbButton.addEventListener('click', rgbScale);
