@@ -1,5 +1,6 @@
 const container = document.querySelector('.container');
 const buttonsContainer = document.querySelector('.buttons')
+const description = document.querySelector('.main__description');
 
 const resizeButton = document.createElement('button');
 resizeButton.classList.add('.buttons__resize-button');
@@ -45,10 +46,11 @@ function updateSize() {
     resizeButton.addEventListener('click', (event) => {
         let size = prompt("What size grid would you like to use?");
         if (!size || size <= 0 || size > 100) {
-            alert("Please select a number between 1 and 100");
+            alert("Please select a number between 1 and 100.");
         } else {
             clearDivs();
             createDivs(size,size);
+            description.innerText = `Now drawing with a ${size} x ${size} grid 🎨`;
         }
     })
 }
