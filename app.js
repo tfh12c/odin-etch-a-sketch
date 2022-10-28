@@ -43,18 +43,16 @@ function clearDivs() {
 }
 
 function updateSize() {
-    resizeButton.addEventListener('click', () => {
-        let size = prompt("What size grid would you like to use?");
-        if (!size || size <= 0 || size > 100) {
-            alert("Please select a number between 1 and 100.");
-        } else {
-            clearDivs();
-            createDivs(size,size);
-            description.innerText = `Now drawing with a ${size} x ${size} grid 🎨`;
-        }
-    })
+    let size = prompt("What size grid would you like to use?");
+    if (!size || size <= 0 || size > 100) {
+        alert("Please select a number between 1 and 100.");
+    } else {
+        clearDivs();
+        createDivs(size,size);
+        description.innerText = `Now drawing with a ${size} x ${size} grid 🎨`;
+    }
 }
-updateSize();
+resizeButton.addEventListener('click', updateSize);
 
 function greyScale() {
     const divs = document.querySelectorAll('.squares');
