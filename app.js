@@ -43,7 +43,7 @@ function clearDivs() {
 }
 
 function updateSize() {
-    resizeButton.addEventListener('click', (event) => {
+    resizeButton.addEventListener('click', () => {
         let size = prompt("What size grid would you like to use?");
         if (!size || size <= 0 || size > 100) {
             alert("Please select a number between 1 and 100.");
@@ -55,3 +55,16 @@ function updateSize() {
     })
 }
 updateSize();
+
+function greyScale() {
+    const divs = document.querySelectorAll('.squares');
+    divs.forEach((div) => {
+        div.addEventListener('mouseover', (event) => {
+            let number = Math.floor(Math.random() * 256);
+            let greyScale = `rgb(${number}, ${number}, ${number})`;
+            event.target.style.background = greyScale;
+        })
+    })
+}
+
+greyButton.addEventListener('click', greyScale);
