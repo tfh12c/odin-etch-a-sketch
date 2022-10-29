@@ -1,3 +1,7 @@
+const DEFAULT_SIZE = 16;
+let userSize = DEFAULT_SIZE;
+console.log(userSize);
+
 const container = document.querySelector('.container');
 const buttonsContainer = document.querySelector('.buttons')
 const description = document.querySelector('.main__description');
@@ -17,6 +21,13 @@ rgbButton.classList.add('.buttons__rgb-button');
 rgbButton.innerText = "Rainbow!";
 buttonsContainer.appendChild(rgbButton);
 
+const clearButton = document.createElement('button');
+clearButton.classList.add('.buttons__clear-button');
+clearButton.innerText = "Clear";
+buttonsContainer.appendChild(clearButton);
+
+clearButton.addEventListener('click', clearDivs);
+
 function createDivs(columns, rows) {
     for (let i = 0; i < (columns * rows); i++) {
         const div = document.createElement('div');
@@ -26,31 +37,45 @@ function createDivs(columns, rows) {
         container.appendChild(div);
     }
 }
-createDivs(16,16);
+createDivs(DEFAULT_SIZE,DEFAULT_SIZE);
 
 window.onload = () => {
     const divs = document.querySelectorAll('.squares');
     divs.forEach((div) => {
         div.addEventListener('mouseover', (event) => {
-            event.target.style.background = "black";
+            event.target.style.backgroundColor = "black";
         })
     })
 }
 
 function clearDivs() {
-    container.innerHTML = "";
+    removeDivs();
+    if (isNaN(userSize)) {
+        createDivs(DEFAULT_SIZE,DEFAULT_SIZE);
+        description.innerText = `Now drawing with a ${DEFAULT_SIZE} x ${DEFAULT_SIZE} grid 🎨`;
+    } else {
+        createDivs(userSize, userSize);
+        description.innerText = `Now drawing with a ${userSize} x ${userSize} grid 🎨`;
+    }
+}
+
+function removeDivs() {
+    container.innerText = "";
 }
 
 function updateSize() {
-    const size = prompt("What size grid would you like to use?");
-    if (!size || size <= 0 || size > 100) {
+    const userSize = prompt("What size grid would you like to use?");
+    if (!userSize || userSize <= 0 || userSize > 100) {
         alert("Please select a number between 1 and 100.");
     } else {
-        clearDivs();
-        createDivs(size,size);
-        description.innerText = `Now drawing with a ${size} x ${size} grid 🎨`;
+        removeDivs();
+        createDivs(userSize,userSize);
+        description.innerText = `Now drawing with a ${userSize} x ${userSize} grid 🎨`;
     }
+    return userSize;
 }
+
+
 resizeButton.addEventListener('click', updateSize);
 
 function greyScale() {
