@@ -1,6 +1,4 @@
 const DEFAULT_SIZE = 16;
-let userSize = DEFAULT_SIZE;
-console.log(userSize);
 
 const container = document.querySelector('.container');
 const buttonsContainer = document.querySelector('.buttons')
@@ -37,9 +35,9 @@ function createDivs(columns, rows) {
         container.appendChild(div);
     }
 }
-createDivs(DEFAULT_SIZE,DEFAULT_SIZE);
 
 window.onload = () => {
+    createDivs(DEFAULT_SIZE,DEFAULT_SIZE);
     const divs = document.querySelectorAll('.squares');
     divs.forEach((div) => {
         div.addEventListener('mouseover', (event) => {
@@ -49,14 +47,10 @@ window.onload = () => {
 }
 
 function clearDivs() {
-    removeDivs();
-    if (isNaN(userSize)) {
-        createDivs(DEFAULT_SIZE,DEFAULT_SIZE);
-        description.innerText = `Now drawing with a ${DEFAULT_SIZE} x ${DEFAULT_SIZE} grid 🎨`;
-    } else {
-        createDivs(userSize, userSize);
-        description.innerText = `Now drawing with a ${userSize} x ${userSize} grid 🎨`;
-    }
+    const divs = document.querySelectorAll('.squares');
+    divs.forEach((div) => {
+        div.style.backgroundColor = "grey";
+    })
 }
 
 function removeDivs() {
@@ -64,17 +58,16 @@ function removeDivs() {
 }
 
 function updateSize() {
-    const userSize = prompt("What size grid would you like to use?");
-    if (!userSize || userSize <= 0 || userSize > 100) {
+    let size = prompt("What size grid would you like to use?");
+    if (!size || size <= 0 || size > 100) {
         alert("Please select a number between 1 and 100.");
     } else {
         removeDivs();
-        createDivs(userSize,userSize);
-        description.innerText = `Now drawing with a ${userSize} x ${userSize} grid 🎨`;
+        createDivs(size,size);
+        description.innerText = `Now drawing with a ${size} x ${size} grid 🎨`;
     }
-    return userSize;
+    return size;
 }
-
 
 resizeButton.addEventListener('click', updateSize);
 
