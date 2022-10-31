@@ -1,4 +1,5 @@
 const DEFAULT_SIZE = 16;
+const DEFAULT_COLOR = "#000000";
 
 //DOM creating needed elements
 const header = document.querySelector('.header');
@@ -10,6 +11,11 @@ const resizeButton = document.createElement('button');
 resizeButton.classList.add('.buttons__resize-button');
 resizeButton.innerText = "Change Grid Size";
 header.appendChild(resizeButton);
+
+const retroButton = document.createElement('button');
+retroButton.classList.add('.buttons__retro-button');
+retroButton.innerText = "Retro";
+buttonsContainer.appendChild(retroButton);
 
 const greyButton = document.createElement('button');
 greyButton.classList.add('.buttons__grey-button');
@@ -44,12 +50,8 @@ function createDivs(columns, rows) {
 
 window.onload = () => {
     createDivs(DEFAULT_SIZE,DEFAULT_SIZE);
-    const divs = document.querySelectorAll('.squares');
-    divs.forEach((div) => {
-        div.addEventListener('mouseover', (event) => {
-            event.target.style.backgroundColor = DEFAULT_COLOR;
-        })
-    })
+    retroColor();
+    retroButton.classList.add('.active');
 }
 
 function clearDivs() {
@@ -57,7 +59,11 @@ function clearDivs() {
     divs.forEach((div) => {
         div.style.backgroundColor = "grey";
     })
-    if (greyButton.classList.contains('.active')) {
+    if (retroButton.classList.contains('.active')) {
+        retroColor();
+    } else if (greyButton.classList.contains('.active')) {
+        greyScale();
+    } else if (rgbButton.classList.contains('.active')) {
         rgbScale();
     }
 }
@@ -78,7 +84,17 @@ function updateSize() {
     return size;
 }
 
-
+function retroColor() {
+    const divs = document.querySelectorAll('.squares');
+    divs.forEach((div) => {
+        div.addEventListener('mouseover', (event) => {
+            event.target.style.backgroundColor = DEFAULT_COLOR;
+        })
+    })
+    retroButton.classList.add('.active');
+    greyButton.classList.remove('.active');
+    rgbButton.classList.remove('.active');
+}
 
 function greyScale() {
     const divs = document.querySelectorAll('.squares');
@@ -90,9 +106,9 @@ function greyScale() {
         })
     })
     greyButton.classList.add('.active');
+    retroButton.classList.remove('active');
+    rgbButton.classList.remove('active');
 }
-
-
 
 function rgbScale() {
     const divs = document.querySelectorAll('.squares');
@@ -107,4 +123,6 @@ function rgbScale() {
         })
     })
     rgbButton.classList.add('.active');
+    retroButton.classList.remove('active');
+    greyButton.classList.remove('active');
 }
