@@ -1,22 +1,20 @@
+/* Media Breakpoints */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-.main {
-  background-color: red;
-}
-
-.squares {
-  background-color: grey;
-  border: 0.25px solid black;
+.body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #CCCCCC;
 }
 
 .main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 1rem 0;
 }
 
 .header {
@@ -24,11 +22,35 @@
   flex-direction: column;
   align-items: center;
 }
+.header__description {
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-style: italic;
+}
+.header__resize-button {
+  border: 1px solid black;
+  border-radius: 0.3125rem;
+  background-color: #CCCCCC;
+  height: 2rem;
+  width: 10rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+.header__resize-button:hover {
+  background-color: black;
+  color: white;
+  transform: scale(1.1);
+}
 
 .container {
   width: 18.75rem;
   height: 18.75rem;
   display: grid;
+}
+
+.squares {
+  background-color: grey;
+  border: 0.25px solid black;
 }
 
 .buttons {

@@ -8,27 +8,27 @@ const buttonsContainer = document.querySelector('.buttons')
 const description = document.querySelector('.main__description');
 
 const resizeButton = document.createElement('button');
-resizeButton.classList.add('.buttons__resize-button');
+resizeButton.classList.add('header__resize-button');
 resizeButton.innerText = "Change Grid Size";
 header.appendChild(resizeButton);
 
 const retroButton = document.createElement('button');
-retroButton.classList.add('.buttons__retro-button');
+retroButton.classList.add('buttons__retro-button');
 retroButton.innerText = "Retro";
 buttonsContainer.appendChild(retroButton);
 
 const greyButton = document.createElement('button');
-greyButton.classList.add('.buttons__grey-button');
+greyButton.classList.add('buttons__grey-button');
 greyButton.innerText = "Grey Scale";
 buttonsContainer.appendChild(greyButton)
 
 const rgbButton = document.createElement('button');
-rgbButton.classList.add('.buttons__rgb-button');
+rgbButton.classList.add('buttons__rgb-button');
 rgbButton.innerText = "Rainbow!";
 buttonsContainer.appendChild(rgbButton);
 
 const clearButton = document.createElement('button');
-clearButton.classList.add('.buttons__clear-button');
+clearButton.classList.add('buttons__clear-button');
 clearButton.innerText = "Clear";
 buttonsContainer.appendChild(clearButton);
 
@@ -51,7 +51,7 @@ function createDivs(columns, rows) {
 window.onload = () => {
     createDivs(DEFAULT_SIZE,DEFAULT_SIZE);
     retroColor();
-    retroButton.classList.add('.active');
+    retroButton.classList.add('active');
 }
 
 function clearDivs() {
@@ -59,11 +59,11 @@ function clearDivs() {
     divs.forEach((div) => {
         div.style.backgroundColor = "grey";
     })
-    if (retroButton.classList.contains('.active')) {
+    if (retroButton.classList.contains('active')) {
         retroColor();
-    } else if (greyButton.classList.contains('.active')) {
+    } else if (greyButton.classList.contains('active')) {
         greyScale();
-    } else if (rgbButton.classList.contains('.active')) {
+    } else if (rgbButton.classList.contains('active')) {
         rgbScale();
     }
 }
@@ -79,9 +79,9 @@ function updateSize() {
     } else {
         removeDivs();
         createDivs(size,size);
+        clearDivs();
         description.innerText = `Now drawing with a ${size} x ${size} grid 🎨`;
     }
-    return size;
 }
 
 function retroColor() {
@@ -91,9 +91,9 @@ function retroColor() {
             event.target.style.backgroundColor = DEFAULT_COLOR;
         })
     })
-    retroButton.classList.add('.active');
-    greyButton.classList.remove('.active');
-    rgbButton.classList.remove('.active');
+    retroButton.classList.add('active');
+    greyButton.classList.remove('active');
+    rgbButton.classList.remove('active');
 }
 
 function greyScale() {
@@ -105,7 +105,7 @@ function greyScale() {
             event.target.style.background = greyScale;
         })
     })
-    greyButton.classList.add('.active');
+    greyButton.classList.add('active');
     retroButton.classList.remove('active');
     rgbButton.classList.remove('active');
 }
@@ -122,7 +122,7 @@ function rgbScale() {
             event.target.style.background = color;
         })
     })
-    rgbButton.classList.add('.active');
+    rgbButton.classList.add('active');
     retroButton.classList.remove('active');
     greyButton.classList.remove('active');
 }

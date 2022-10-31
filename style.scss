@@ -1,34 +1,61 @@
+@use './_partials/mixins';
+@use './_partials/variables';
+
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-.main {
-    background-color: red;
-}
-
-.squares {
-    background-color: grey;
-    border: .25px solid black;
+.body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #CCCCCC;
 }
 
 .main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 1rem 0;
 }
 
 .header {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    &__description {
+        margin-bottom: .5rem;
+        font-size: .875rem;
+        font-style: italic;
+    }
+
+    &__resize-button {
+        border: 1px solid black;
+        border-radius: .3125rem;
+        background-color: #CCCCCC;
+        height: 2rem;
+        width: 10rem;
+        margin-bottom: 1rem;
+        font-size: 1rem;
+
+        &:hover {
+            background-color: black;
+            color: white;
+            transform: scale(1.1);
+        }
+    }
 }
 
 .container {
     width: 18.75rem;
     height: 18.75rem;
     display: grid;
+}
+
+.squares {
+    background-color: grey;
+    border: .25px solid black;
 }
 
 .buttons {
