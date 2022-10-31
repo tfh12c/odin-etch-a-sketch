@@ -1,5 +1,7 @@
 const DEFAULT_SIZE = 16;
 
+//DOM creating needed elements
+const header = document.querySelector('.header');
 const container = document.querySelector('.container');
 const buttonsContainer = document.querySelector('.buttons')
 const description = document.querySelector('.main__description');
@@ -7,7 +9,7 @@ const description = document.querySelector('.main__description');
 const resizeButton = document.createElement('button');
 resizeButton.classList.add('.buttons__resize-button');
 resizeButton.innerText = "Change Grid Size";
-buttonsContainer.appendChild(resizeButton)
+header.appendChild(resizeButton);
 
 const greyButton = document.createElement('button');
 greyButton.classList.add('.buttons__grey-button');
@@ -24,6 +26,10 @@ clearButton.classList.add('.buttons__clear-button');
 clearButton.innerText = "Clear";
 buttonsContainer.appendChild(clearButton);
 
+//Event Listeners
+resizeButton.addEventListener('click', updateSize);
+greyButton.addEventListener('click', greyScale);
+rgbButton.addEventListener('click', rgbScale);
 clearButton.addEventListener('click', clearDivs);
 
 function createDivs(columns, rows) {
@@ -41,7 +47,7 @@ window.onload = () => {
     const divs = document.querySelectorAll('.squares');
     divs.forEach((div) => {
         div.addEventListener('mouseover', (event) => {
-            event.target.style.backgroundColor = "black";
+            event.target.style.backgroundColor = DEFAULT_COLOR;
         })
     })
 }
@@ -51,6 +57,9 @@ function clearDivs() {
     divs.forEach((div) => {
         div.style.backgroundColor = "grey";
     })
+    if (greyButton.classList.contains('.active')) {
+        rgbScale();
+    }
 }
 
 function removeDivs() {
@@ -69,7 +78,7 @@ function updateSize() {
     return size;
 }
 
-resizeButton.addEventListener('click', updateSize);
+
 
 function greyScale() {
     const divs = document.querySelectorAll('.squares');
@@ -80,9 +89,10 @@ function greyScale() {
             event.target.style.background = greyScale;
         })
     })
+    greyButton.classList.add('.active');
 }
 
-greyButton.addEventListener('click', greyScale);
+
 
 function rgbScale() {
     const divs = document.querySelectorAll('.squares');
@@ -96,5 +106,5 @@ function rgbScale() {
             event.target.style.background = color;
         })
     })
+    rgbButton.classList.add('.active');
 }
-rgbButton.addEventListener('click', rgbScale);
