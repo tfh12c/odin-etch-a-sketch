@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+.main {
+  background-color: red;
+}
+
 .squares {
   background-color: grey;
   border: 0.25px solid black;
