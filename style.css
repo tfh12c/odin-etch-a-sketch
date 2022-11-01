@@ -53,6 +53,12 @@ body {
   margin-bottom: 1rem;
   background-color: white;
 }
+@media (min-width: 48rem) {
+  .container {
+    width: 33rem;
+    height: 31.25rem;
+  }
+}
 
 .squares {
   background-color: white;
@@ -76,6 +82,14 @@ body {
   background-color: #333333;
   color: white;
   transform: scale(1.1);
+}
+@media (min-width: 48rem) {
+  .buttons {
+    flex-direction: row;
+    width: 34rem;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 }
 
 .active {

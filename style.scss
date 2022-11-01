@@ -49,6 +49,11 @@ body {
     display: grid;
     margin-bottom: 1rem;
     background-color: white;
+
+    @include mixins.tablet {
+        width: 33rem;
+        height: 31.25rem;
+    }
 }
 
 .squares {
@@ -65,6 +70,13 @@ body {
         &:hover {
             @include mixins.button-hover;
         }
+    }
+
+    @include mixins.tablet {
+        flex-direction: row;
+        width: 34rem;
+        flex-wrap: wrap;
+        justify-content: space-around;
     }
 }
 
