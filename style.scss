@@ -16,7 +16,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem 0;
 }
 
 .header {
@@ -24,8 +23,13 @@ body {
     flex-direction: column;
     align-items: center;
 
+    &__title {
+        margin-top: 1rem;
+        font-size: 2.125rem;
+    }
+
     &__description {
-        margin-bottom: .5rem;
+        margin-bottom: 1rem; 
         font-size: .875rem;
         font-style: italic;
     }

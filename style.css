@@ -14,7 +14,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem 0;
 }
 
 .header {
@@ -22,8 +21,12 @@ body {
   flex-direction: column;
   align-items: center;
 }
+.header__title {
+  margin-top: 1rem;
+  font-size: 2.125rem;
+}
 .header__description {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   font-size: 0.875rem;
   font-style: italic;
 }
