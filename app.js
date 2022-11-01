@@ -33,6 +33,7 @@ clearButton.innerText = "Clear";
 buttonsContainer.appendChild(clearButton);
 
 //Event Listeners
+retroButton.addEventListener('click', retroColor);
 resizeButton.addEventListener('click', updateSize);
 greyButton.addEventListener('click', greyScale);
 rgbButton.addEventListener('click', rgbScale);
@@ -57,7 +58,7 @@ window.onload = () => {
 function clearDivs() {
     const divs = document.querySelectorAll('.squares');
     divs.forEach((div) => {
-        div.style.backgroundColor = "grey";
+        div.style.backgroundColor = "white";
     })
     if (retroButton.classList.contains('active')) {
         retroColor();

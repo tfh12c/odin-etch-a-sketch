@@ -11,3 +11,20 @@
         @content;
     }
 }
+
+@mixin button-styling {
+    border: 1px solid black;
+    border-radius: .3125rem;
+    background-color: #CCCCCC;
+    height: 2rem;
+    width: 10rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+@mixin button-hover {
+    background-color: #333333;;
+    color: white;
+    transform: scale(1.1);
+}
