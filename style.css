@@ -15,6 +15,12 @@ body {
   flex-direction: column;
   align-items: center;
 }
+@media (min-width: 80rem) {
+  .main {
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+}
 
 .header {
   display: flex;
@@ -31,6 +37,11 @@ body {
     margin-bottom: 0.5rem;
   }
 }
+@media (min-width: 80rem) {
+  .header__title {
+    font-size: 4.125rem;
+  }
+}
 .header__description {
   margin-bottom: 1rem;
   font-size: 0.875rem;
@@ -39,6 +50,11 @@ body {
 @media (min-width: 48rem) {
   .header__description {
     font-size: 1.125rem;
+  }
+}
+@media (min-width: 80rem) {
+  .header__description {
+    font-size: 1.25rem;
   }
 }
 .header__resize-button {
@@ -68,6 +84,13 @@ body {
   .container {
     width: 33rem;
     height: 31.25rem;
+  }
+}
+@media (min-width: 80rem) {
+  .container {
+    width: 42rem;
+    height: 35rem;
+    margin-right: 13rem;
   }
 }
 
@@ -100,6 +123,14 @@ body {
     width: 34rem;
     flex-wrap: wrap;
     justify-content: space-around;
+  }
+}
+@media (min-width: 80rem) {
+  .buttons {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 13rem;
+    height: 15rem;
   }
 }
 

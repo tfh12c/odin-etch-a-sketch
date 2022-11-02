@@ -16,6 +16,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @include mixins.desktop {
+        flex-direction: row-reverse;
+        justify-content: center;
+    }
 }
 
 .header {
@@ -31,6 +36,10 @@ body {
             font-size: 3.125rem;
             margin-bottom: .5rem;
         }
+
+        @include mixins.desktop {
+            font-size: 4.125rem;
+        }
     }
 
     &__description {
@@ -40,6 +49,10 @@ body {
 
         @include mixins.tablet {
             font-size: 1.125rem;
+        }
+
+        @include mixins.desktop {
+            font-size: 1.25rem;
         }
     }
 
@@ -62,6 +75,12 @@ body {
     @include mixins.tablet {
         width: 33rem;
         height: 31.25rem;
+    }
+
+    @include mixins.desktop {
+        width: 42rem;
+        height: 35rem;
+        margin-right: 13rem;
     }
 }
 
@@ -86,6 +105,13 @@ body {
         width: 34rem;
         flex-wrap: wrap;
         justify-content: space-around;
+    }
+
+    @include mixins.desktop {
+        flex-wrap: nowrap;
+        flex-direction: column;
+        width: 13rem;
+        height: 15rem;
     }
 }
 
